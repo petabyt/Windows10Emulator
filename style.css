@@ -1,0 +1,163 @@
+body,html {
+	margin: 0;
+	width: 100%;
+	min-height: 100% !important;
+	height: 100%;
+	cursor: url('assets/icons/cursor.png'), auto;
+}
+#desktop {
+	background-image: url(assets/backgrounds/background.jpg);
+	background-size: cover;
+	width: 100%;
+	height: calc(100% - 40px);
+	overflow: auto;
+}
+#taskbar {
+	height: 40px;
+	width: 100%;
+	background-color: #000509;
+}
+#taskbar .start {
+	width: 48px;
+	height: 40px;
+	background-size: cover;
+	display: table-cell;
+	background-image: url(assets/icons/start_off.png);
+}
+#taskbar .start:hover {
+	background-image: url(assets/icons/start_on.png);
+}
+
+#startmenu {
+	width: 63%;
+	height: 70%;
+	background-image: url(assets/icons/start_menu_background.png);
+	bottom: 40px;
+	visibility: hidden;
+	left: 0px;
+	position: absolute;
+}
+
+.popup {
+	border: 1px solid #1883d7;
+	background-color: white;
+	width: 425px;
+	height: 175px;
+	resize: both;
+	overflow: hidden;
+	min-height: 175px;
+	min-width: 425px;
+	position: absolute;
+    top: 45%;
+    left: 40%;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+.popup embed {
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	overflow: hidden;
+}
+
+.popup .title .close {
+	background-image: url(assets/icons/close_off.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .close:hover {
+	background-image: url(assets/icons/close_on.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .minimize {
+	background-image: url(assets/icons/minimize_off.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .minimize:hover {
+	background-image: url(assets/icons/minimize_on.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .maximize {
+	background-image: url(assets/icons/maximize_off.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .maximize:hover {
+	background-image: url(assets/icons/maximize_on.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title {
+	height: 30px;
+	cursor: url('assets/icons/cursor.png'), auto;
+	background-color: white;
+}
+.popup .title .title {
+	top: 5px;
+	margin-left: 5px;
+	position: relative;
+	user-select: none;
+
+}
+
+.popup .message {
+	margin-right: 20px;
+	margin-left: 20px;
+	user-select: none;
+}
+#taskbar .cortana {
+	width: 344px;
+	height: 40px;
+	background: #f2f2f2;
+	display: table-cell;
+	border-top: 1px solid #bbbbbb;
+	box-sizing: border-box;
+}
+#taskbar .cortanamic {
+	background-image: url(assets/icons/cortana_mic_off.png);
+	width: 41px;
+	float: right;
+	height: 39px;
+	background-size: cover;
+}
+#taskbar .cortanamic:hover {
+	background-image: url(assets/icons/cortana_mic_on.png);
+}
+.icon img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 50px;
+}
+.icon {
+	width: 83px;
+	height: 77px;
+	margin-top: 10px;
+	margin-left: 10px;
+	box-sizing: border-box;
+}
+.icon:hover {
+	background: rgba(60, 92, 125, 1);
+	border: 1px solid rgba(108, 132, 155, 1);
+}
+.icon p {
+	margin-top: -5px;
+	font-size: 12px;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
