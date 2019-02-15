@@ -3,45 +3,20 @@
 <head>
 	<title>Windows 10</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="icon" type="image/png" href="images/favicon.png">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery-ui.js"></script>
 </head>
 <body>
-<div id="desktop">
-	<div class="icon">
-		<center>
-			<img src="images/folder.png" width="32">
-			<br>
-			<span>Test Folder</span>
-		</center>
-	</div>
-</div>
-<div id="taskbar">
-	<div id="startButton">
+	<div id="desktop">
 		
 	</div>
-	<div id="cortana">
-		<div id="cortanaIcon">
-			
-		</div>
-		<input placeholder="Type here to search" autocorrect="false">
-		<div id="cortanaMic">
-			
-		</div>
+	<div id="taskbar">
+		<div class="start" onclick="togglev('startmenu')"></div>
+		<div class="cortana"><div class="cortanamic"></div></div>
 	</div>
-</div>
-<div id="startMenu">
-	<div id="startMenuSideBar">
+	<div id="startmenu">
 		
 	</div>
-</div>
-<div class="popup">
-	<div class="title">
-		<p>Title</p>
-		<div class="close"></div>
-		<div class="maximize"></div>
-		<div class="minimize" onclick="this.parentElement.ParentElement.outerHTML = '';"></div>
-	</div>
-</div>
 </body>
 <script type="text/javascript" src="javascript.js"></script>
 </html>

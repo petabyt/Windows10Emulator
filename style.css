@@ -1,168 +1,163 @@
 body,html {
-	width: 100%;
-	height: 100%;
 	margin: 0;
-	overflow: hidden;
-	cursor: url('images/cursor.png'), auto;
+	width: 100%;
+	min-height: 100% !important;
+	height: 100%;
+	cursor: url('assets/icons/cursor.png'), auto;
 }
-
 #desktop {
+	background-image: url(assets/backgrounds/background.jpg);
+	background-size: cover;
 	width: 100%;
 	height: calc(100% - 40px);
-	background-image: url("images/background.png");
-	background-position: center;
-	padding: 10px 10px;
-	box-sizing: border-box;
+	overflow: auto;
 }
-
 #taskbar {
-	width: 100%;
 	height: 40px;
-	background: rgb(8,13,20);
-	background-image: url(images/taskbar.png);
+	width: 100%;
+	background-color: #000509;
 }
-
-#startButton {
-	float: left;
+#taskbar .start {
 	width: 48px;
 	height: 40px;
-	background-image: url(images/start-off.png);
+	background-size: cover;
+	display: table-cell;
+	background-image: url(assets/icons/start_off.png);
+}
+#taskbar .start:hover {
+	background-image: url(assets/icons/start_on.png);
 }
 
-#startButton:hover {
-	background-image: url(images/start-on.png);
-}
-
-#cortana {
-	background: rgb(242,242,242);
-	width: 392px;
-	height: 40px;
-	box-sizing: border-box;
-	border-top: 1px solid rgb(187,187,187);
-}
-
-#cortanaMic {
-	float: right;
-	width: 40px;
-	height: 40px;
-	background-image: url(images/cortana-mic-off.png);
-}
-
-#cortanaMic:hover {
-	background-image: url(images/cortana-mic-on.png);
-}
-
-#startMenu {
-	width: 50%;
-	height: 650px;
-	background-image: url(images/start-menu.png);
-	position: absolute;
-	left: 0px;
+#startmenu {
+	width: 63%;
+	height: 70%;
+	background-image: url(assets/icons/start_menu_background.png);
 	bottom: 40px;
-	opacity: .9999999999;
-	display: none;
-}
-
-#cortana input {
-	border: transparent;
-	background: transparent;
-	outline: none;
-	height: 40px;
-	color: black;
-	font-size: 14.5px;
-	width: 265px;
-}
-
-::placeholder {
-	color: rgb(43,43,43);
-}
-
-#cortanaIcon {
-	background-image: url(images/cortana-icon.png);
-	width: 39px;
-	height: 39px;
-	float: left;
-}
-
-.icon {
-	width: 76px;
-	height: 70px;
-	padding-top: 10px;
-	user-select: none;
-}
-
-.icon:hover {
-	background: rgb(59,89,121);
-	border: 1px solid rgb(108,130,153);
-	margin: -1px;
-}
-
-.icon span {
-	color: white;
-	font-size: 13px;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	visibility: hidden;
+	left: 0px;
+	position: absolute;
 }
 
 .popup {
-	width: 400px;
-	height: 200px;
-	position: absolute;
-	top: calc(50% - 100px);
-	left: calc(50% - 200px);
-	background: white;
 	border: 1px solid #1883d7;
+	background-color: white;
+	width: 425px;
+	height: 175px;
+	resize: both;
+	overflow: hidden;
+	min-height: 175px;
+	min-width: 425px;
+	position: absolute;
+    top: 45%;
+    left: 40%;
+    margin-top: -50px;
+    margin-left: -50px;
 }
 
-.title {
+.popup embed {
 	width: 100%;
-	height: 30px;
+	height: 100vh;
+	margin: 0;
+	overflow: hidden;
 }
 
-.title p {
+.popup .title .close {
+	background-image: url(assets/icons/close_off.png);
 	height: 30px;
-	margin: 0px;
-	vertical-align: middle;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .close:hover {
+	background-image: url(assets/icons/close_on.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .minimize {
+	background-image: url(assets/icons/minimize_off.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .minimize:hover {
+	background-image: url(assets/icons/minimize_on.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .maximize {
+	background-image: url(assets/icons/maximize_off.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title .maximize:hover {
+	background-image: url(assets/icons/maximize_on.png);
+	height: 30px;
+	width: 49px;
+	float: right;
+}
+
+.popup .title {
+	height: 30px;
+	cursor: url('assets/icons/cursor.png'), auto;
+	background-color: white;
+}
+.popup .title .title {
+	top: 5px;
+	margin-left: 5px;
+	position: relative;
+	user-select: none;
+
+}
+
+.popup .message {
+	margin-right: 20px;
+	margin-left: 20px;
+	user-select: none;
+}
+#taskbar .cortana {
+	width: 344px;
+	height: 40px;
+	background: #f2f2f2;
 	display: table-cell;
-	padding-left: 10px;
-	float: left;
+	border-top: 1px solid #bbbbbb;
+	box-sizing: border-box;
 }
-
-.close {
-	height: 30px;
-	width: 49px;
+#taskbar .cortanamic {
+	background-image: url(assets/icons/cortana_mic_off.png);
+	width: 41px;
 	float: right;
-	background: url(images/close_off.png);
-	display: table-cell;
+	height: 39px;
+	background-size: cover;
 }
-
-.close:hover {
-	background: url(images/close_on.png);
+#taskbar .cortanamic:hover {
+	background-image: url(assets/icons/cortana_mic_on.png);
 }
-
-.minimize {
-	background-image: url(images/minimize_off.png);
-	height: 30px;
-	width: 49px;
-	float: right;
+.icon img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 50px;
 }
-
-.minimize:hover {
-	background-image: url(images/minimize_on.png);
-	height: 30px;
-	width: 49px;
-	float: right;
+.icon {
+	width: 83px;
+	height: 77px;
+	margin-top: 10px;
+	margin-left: 10px;
+	box-sizing: border-box;
 }
-
-.maximize {
-	background-image: url(images/maximize_off.png);
-	height: 30px;
-	width: 49px;
-	float: right;
+.icon:hover {
+	background: rgba(60, 92, 125, 1);
+	border: 1px solid rgba(108, 132, 155, 1);
 }
-
-.maximize:hover {
-	background-image: url(images/maximize_on.png);
-	height: 30px;
-	width: 49px;
-	float: right;
+.icon p {
+	margin-top: -5px;
+	font-size: 12px;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
