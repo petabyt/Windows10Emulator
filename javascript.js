@@ -1,39 +1,64 @@
-var counter = 0; // Ensures no duplicates of items
-function togglev(element) {
-	if (document.getElementById(element).style.visibility == "hidden") {
-		document.getElementById(element).style.visibility = "visible";
+var z = {
+	mouseOn: "nothing",
+	mouseDown: false,
+	x: 0,
+	y: 0,
+	xd: 0,
+	yd: 0
+}
+
+// Start stuff
+window.onload = function() {
+	var start = document.getElementById('startMenu');
+	start.style.display = "none";
+
+	popup("Welcome", "Windows 10 Emulator");
+
+	setInterval(function() {
+		if (z.mouseOn !== "nothing") {
+			z.yd = z.x - z.mouseDown.offsetLeft;
+			z.xd = z.y - z.mouseDown.offsetTop;
+			if (z.mouseDown) {
+				z.mouseOn.parentElement.style.top = (z.y - 20) + "px";
+				z.mouseOn.parentElement.style.left = (z.x - 50) + "px";
+			}
+		}
+	}, 1);
+}
+
+// Start Button Toggle
+document.getElementById('startButton').onclick = function() {
+	var start = document.getElementById('startMenu');
+	if (start.style.display == "none") {
+		start.style.display = "block";
 	} else {
-		document.getElementById(element).style.visibility = "hidden"
+		start.style.display = "none";
 	}
 }
-function popup(title,message) {
-	var popup = document.createElement('DIV');
-	popup.className = "popup";
-	popup.id = 'popup'+counter;
-	popup.innerHTML = "<div id='popuptitle"+counter+"' class='title'><span draggable='false'  class='title'>"+title+"</span><div class='close'></div><div class='maximize'></div><div class='minimize'></div></div><p class='message'>"+message+"</p>";
-	popup.getElementsByClassName('close')[0].addEventListener("click", function() {
-		this.parentElement.parentElement.outerHTML = "";
-	});
-	if (title == "2048") {
-		popup.style = "left: 279.939px; top: 137.458px; width: 423px; height: 515px; background-color:#faf8ef;";
-	}
-	document.body.appendChild(popup);
-	$("#popup"+counter).draggable({ handle:'#popuptitle'+counter, containment: 'window'});
-	counter++
+
+function popup(title, text) {
+	document.getElementsByTagName('body')[0].innerHTML += `
+	<div class="popup">
+		<div class="title" onmouseover="z.mouseOn = this" onmouseleave="` + function() {
+			if (!z.mouseDown) {
+				z.mouseOn = 'nothing'
+			}
+		} + `">
+			<p>` + title + `</p>
+			<div class="close" onmouseover="` + function() {
+				this.parentElement.parentElement.innerHTML = '';
+			} + `"></div>
+			<div class="maximize"></div>
+			<div class="minimize" onclick="this.parentElement.ParentElement.outerHTML = '';"></div>
+		</div>
+		<div class="content">
+		` + text + `
+		</div>
+	</div>
+	`;
 }
-function icon(icon1,text,code) {
-	var icon = document.createElement('DIV');
-	icon.className = 'icon';
-	icon.id = 'icon' + counter;
-	icon.innerHTML = '<center><img src="assets/icons/'+icon1+'.png"><p>'+text+'</p></center>';
-	icon.addEventListener("dblclick", code);
-	document.getElementById('desktop').appendChild(icon);
-	counter++
+
+function getMouse(event) {
+	z.y = event.clientY;
+	z.x = event.clientX;
 }
-popup("Welcome to Windows CB","Welcome to Windows ChromeBook. Click the 'x' button to close this popup.");
-icon("2048","2048",function() {
-	popup("2048","<embed src='games/2048/index.html'>");
-});
-icon("2048","Platformer",function() {
-	popup("Platformer",'<object width="480" height="360" data="games/PaintPlatformer.swf">whoops</object>');
-});
